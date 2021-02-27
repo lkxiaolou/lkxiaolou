@@ -60,7 +60,7 @@ redis协议使用了第2种，http和接下来要介绍的dubbo协议使用了�
 - 64-95: 内容长度（字节）
 - 96-?: 序列化后的内容（换行符分隔）
 
-![](https://imgkr2.cn-bj.ufileos.com/06644f3d-db69-4a2a-b801-30bcc87d3817.png?UCloudPublicKey=TOKEN_8d8b72be-579a-4e83-bfd0-5f6ce1546f13&Signature=giznpIyAksqKzN4ZXfC8iZgd2Fs%253D&Expires=1614001598)
+![](imgs/img13.jpg)
 
 ### 常用的attachments在dubbo协议的哪里？
 
