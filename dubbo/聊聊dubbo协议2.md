@@ -69,7 +69,7 @@ RpcResultt的attachments通过filter塞到RpcContext中去，这样我们就能�
 - `2.7.0`之后的版本，dubbo版本在provider的url release参数上，dubbo协议版本在dubbo参数上，目前还是2.0.2
 
 ### 最后
-这次的dubbo协议先聊到这，后续如果想到需要补充的，我会来继续写这个系列。
+通过这次分析知道了2.7.x的dubbo为什么provider不能带回隐式参数了，这应该是个bug。
 
 ---
 欢迎关注我的公众号
