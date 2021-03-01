@@ -10,6 +10,8 @@
   - [聊聊dubbo协议2](./dubbo/聊聊dubbo协议2.md) -`2021.02.27`
   - [聊聊dubbo协议](./dubbo/聊聊dubbo协议.md) -`2021.02.22`
   - [dubbo的前世今生](./dubbo/dubbo的前世今生.md) -`2021.01.30`
+  - [实测Tengine开源的Dubbo功能.md](./dubbo/实测Tengine开源的Dubbo功能.md.md) -`2020.12.10`
+  
 
 ### 交流
 1. 可以在本仓库提issue
