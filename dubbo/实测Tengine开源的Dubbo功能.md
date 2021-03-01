@@ -55,7 +55,7 @@ make && make install
 
 ### Dubbo例子
 
-这里要提一下之前在《dubbo应用级服务发现初体验》中提到的快速搭建Dubbo调试环境的方法：
+这里要提一下之前在[《dubbo应用级服务发现初体验》](dubbo应用级服务发现初体验.md)中提到的快速搭建Dubbo调试环境的方法：
 
 - git clone https://github.com/apache/dubbo.git
 - 使用/dubbo-demo目录下的例子，本文使用/dubbo-demo/dubbo-demo-api-provider下的例子
