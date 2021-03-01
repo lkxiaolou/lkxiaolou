@@ -55,7 +55,7 @@ make && make install
 
 ### Dubbo例子
 
-这里要提一下之前在[《dubbo应用级服务发现初体验》](dubbo应用级服务发现初体验.md)中提到的快速搭建Dubbo调试环境的方法：
+这里要提一下之前在[《dubbo应用级服务发现初体验》](../dubbo应用级服务发现初体验/dubbo应用级服务发现初体验.md)中提到的快速搭建Dubbo调试环境的方法：
 
 - git clone https://github.com/apache/dubbo.git
 - 使用/dubbo-demo目录下的例子，本文使用/dubbo-demo/dubbo-demo-api-provider下的例子
@@ -159,11 +159,11 @@ http {
 curl -X POST http://127.0.0.1:8080/dubbo -i -d "hello=roshi"
 ```
 
-![](imgs/img25.jpg)
+![](img25.jpg)
 
 看一下传参情况
 
-![](imgs/img26.jpg)
+![](img26.jpg)
 
 ### 总结
 
@@ -181,7 +181,7 @@ curl -X POST http://127.0.0.1:8080/dubbo -i -d "hello=roshi"
 
 最后吐槽一下Tengine官网的文档
 
-![](imgs/img27.jpg)
+![](img27.jpg)
 
 # 参考
 - 官方文档 http://tengine.taobao.org/document_cn/ngx_http_dubbo_module_cn.html
@@ -192,7 +192,7 @@ curl -X POST http://127.0.0.1:8080/dubbo -i -d "hello=roshi"
 
 欢迎关注我的公众号
 
-![捉虫大师](../qrcode_small.jpg)
+![捉虫大师](../../qrcode_small.jpg)
 
 - 原文链接: [https://mp.weixin.qq.com/s/-bA3cGDSwFa63aq0s8AUFA](https://mp.weixin.qq.com/s/-bA3cGDSwFa63aq0s8AUFA)
 - 发布时间: 2020.12.10

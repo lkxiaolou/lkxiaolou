@@ -12,7 +12,7 @@
 
 在dubbo**2.7.5**版本中发布了应用级服务发现
 
-![](imgs/img28.jpg)
+![](img28.jpg)
 
 官方的release note中只有这么一句话提到，给出的信息就两点：
 
@@ -45,7 +45,7 @@ git clone https://github.com/apache/dubbo.git
 
 使用源码自带的demo即可，dubbo运行方式有很多，注解、api、xml等方式，选择你熟悉的即可，没有本质区别
 
-![](imgs/img29.jpg)
+![](img29.jpg)
 
 ## 两种服务发现
 
@@ -53,7 +53,7 @@ git clone https://github.com/apache/dubbo.git
 
 dubbo默认就是接口级服务注册，只要找个provider的demo启动就行，启动好我们看一下zk上注册的数据
 
-![](imgs/img30.jpg)
+![](img30.jpg)
 
 **/dubbo** 目录下的**config**、**metadata**是2.7之后引入的“三大中心”，这块不在本文讨论范围，暂时忽略
 
@@ -99,7 +99,7 @@ registryConfig.setParameters(params);
 
 zk上注册的数据变成了在 **/services**下
 
-![](imgs/img31.jpg)
+![](img31.jpg)
 
 我们发现在服务维度的注册的元数据不见了，所以此时consumer会先和provider建立连接，再去获取元数据。
 
@@ -110,7 +110,7 @@ zk上注册的数据变成了在 **/services**下
 
 欢迎关注我的公众号
 
-![捉虫大师](../qrcode_small.jpg)
+![捉虫大师](../../qrcode_small.jpg)
 
 - 原文链接: https://mp.weixin.qq.com/s/nM7BFnW-I3A3mmLOPmBJJw
 - 发布时间: 2020.09.02

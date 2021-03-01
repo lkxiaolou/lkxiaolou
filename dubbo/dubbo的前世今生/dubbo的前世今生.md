@@ -7,10 +7,10 @@
 
 # dubbo
 RPC，全称Remote Procedure Call，即远程过程调用，一句话描述就是调用远程对象就像调用本地方法一样方便简单。常见的RPC框架有dubbo、grpc、thrift等。
-![](imgs/img10.jpg)
+![](img10.jpg)
 
 dubbo， |ˈdʌbəʊ| 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。目前使用dubbo的公司非常多。
-![](imgs/img11.jpg)
+![](img11.jpg)
 
 # 前世今生
 dubbo的发展历程可以总结为3个阶段：
@@ -18,7 +18,7 @@ dubbo的发展历程可以总结为3个阶段：
 - 诞生阿里：dubbo前生2008年在阿里内部诞生，2011年开源，2012年发布2.5.3版本后停止更新
 - 当当续命：2014年当当发布dubbox，是基于阿里开源的dubbo 2.5.3版本增加rest协议的dubbo版本
 - 重启登顶apache：2017年阿里重启dubbo项目，并于2018年进入apache孵化，2019年成为apache顶级项目，同时也发布了dubbo.js，dubbo-go等多语言dubbo版本，2020年发布3.0往云原生项目发展的战略计划
-![](imgs/img12.jpg)
+![](img12.jpg)
 
 目前支持的版本主要是2.6.x和2.7.x：
 
@@ -38,13 +38,13 @@ dubbo原生的协议定义如下：
 - 64-95: 内容长度（字节）
 - 96-?: 序列化后的内容（换行符分隔）
 
-![](imgs/img13.jpg)
+![](img13.jpg)
 
 dubbo协议的优点是设计紧凑、请求响应的header一致；缺点是无法通过header定位资源，header和body中字段存在冗余，协议无法扩展。
 
 当然同时也支持扩展多种协议，如当当扩展的rest协议，还有最新支持的grpc协议等
 
-![](imgs/img14.jpg)
+![](img14.jpg)
 
 说到扩展，可能是dubbo设计的最大亮点，dubbo的扩展基于SPI（Service Provide Interface）设计，可以无侵入代码实现非常多的功能。
 
@@ -58,7 +58,7 @@ dubbo协议的优点是设计紧凑、请求响应的header一致；缺点是无
 - 动态调整，注册中心支持参数动态调整，新参数自动更新到所有相关的服务节点。
 - 统一管理，依靠注册中心数据，可以统一管理配置服务节点。dubbo主流的注册中心一般用zookeeper或者nacos，其他还有很多扩展实现。
 
-![](imgs/img15.jpg)
+![](img15.jpg)
 
 ### 集群
 集群包含了路由、负载均衡和集群容错三个内容，从一个例子来看这三方面的差异：
@@ -70,17 +70,17 @@ dubbo协议的优点是设计紧凑、请求响应的header一致；缺点是无
 3. 假设随机到了第7个provider。结果调用第7个 provider 失败了。根据配置的failover集群容错模式，重试其他服务器。重试了第13个provider，调用成功。
 这里1对应了路由，2对应了负载均衡，3对应了集群容错。
 
-![](imgs/img16.jpg)
+![](img16.jpg)
 
-![](imgs/img17.jpg)
+![](img17.jpg)
 
-![](imgs/img18.jpg)
+![](img18.jpg)
 
 ### filter
 
 在dubbo的整体设计中，filter是一个很重要的概念，包括dubbo本身的大多数功能，都是基于此扩展点实现的，在每次的调用过程中，filter的拦截都会被执行。filter是一种责任链的设计模式：
 
-![](imgs/img19.jpg)
+![](img19.jpg)
 
 常见的filter：监控打点、日志记录、限流降级、鉴权等。
 
@@ -94,11 +94,11 @@ dubbo协议的优点是设计紧凑、请求响应的header一致；缺点是无
 
 可以看出数据量很大，这还是接口级的数据，当接口数量越来越多，注册中心的压力越来越大，变更推送的数据越来越多。
 
-![](imgs/img20.jpg)
+![](img20.jpg)
 
 所以，我们需要元数据中心和配置中心来减轻注册中心的压力。不经常变化的数据可以放在元数据中心。上述注册数据拆分之后：
 
-![](imgs/img21.jpg)
+![](img21.jpg)
 
 ```
 /dubbo/org.apache.dubbo.demo.DemoService/providers/dubbo%3A%2F%2F172.23.234.48%3A20880%2Forg.apache.dubbo.demo.DemoService%3Fapplication%3Ddubbo-demo-api-provider%26deprecated%3Dfalse%26dubbo%3D2.0.2%26timestamp%3D1600336144382
@@ -110,7 +110,7 @@ dubbo协议的优点是设计紧凑、请求响应的header一致；缺点是无
 
 我们常见的dubbo调用方式是引入provider定义的接口jar包，但如果没有这个jar包，能否发起调用？当然是可以，也确实有这样的场景，比如服务测试平台，dubbo服务网关等。只要知道接口名，参数等信息即可发起调用。
 
-![](imgs/img22.jpg)
+![](img22.jpg)
 
 # 未来发展
 
@@ -118,7 +118,7 @@ dubbo当时的未来规划其实走了个曲线，并不是一步到现在的云
 
 响应式编程（reactive programming）是一种基于数据流（data stream）和变化传递（propagation of change）的声明式（declarative）的编程范式。RSocket 是一个支持 reactive-stream 语义的开源网络通信协议，它将 reactive 语义的复杂逻辑封装了起来，使得上层可以方便实现网络程序。Dubbo 在 3.0.0-SNAPSHOT 版本里基于 RSocket 对响应式编程提供了支持，用户可以在请求参数和返回值里使用Mono和Flux类型的对象。
 
-![](imgs/img23.jpg)
+![](img23.jpg)
 
 但到了2020年，随着云原生概念的兴起和大厂纷纷地落地，dubbo是否也可以朝这个方向发展呢？
 
@@ -140,13 +140,13 @@ dubbo的服务级注册发现，与k8s容器编排的应用级服务发现相违
 
 而重sdk，未来可能会被mesh改善，据说阿里内部已经有dubbo mesh落地的业务线了。
 
-![](imgs/img24.jpg)
+![](img24.jpg)
 
 ---
 
 欢迎关注我的公众号
 
-![捉虫大师](../qrcode_small.jpg)
+![捉虫大师](../../qrcode_small.jpg)
 
 - 原文链接: [https://mp.weixin.qq.com/s/hXddvr6tMdgSVln97mHBKw](https://mp.weixin.qq.com/s/hXddvr6tMdgSVln97mHBKw)
 - 发布时间: 2021.01.30
