@@ -12,6 +12,9 @@
   - [dubbo的前世今生](dubbo/dubbo的前世今生/dubbo的前世今生.md) -`2021.01.30`
   - [实测Tengine开源的Dubbo功能](dubbo/实测Tengine开源的Dubbo功能/实测Tengine开源的Dubbo功能.md) -`2020.12.10`
   - [dubbo应用级服务发现初体验](dubbo/dubbo应用级服务发现初体验/dubbo应用级服务发现初体验.md) -`2020.09.02`
+- [服务发现](/服务发现)
+  - [当我们谈注册中心时谈什么](服务发现/当我们谈注册中心时谈什么/当我们谈注册中心时谈什么.md) `2020.08.02`
+  - [nacos的一致性协议distro介绍](服务发现/nacos的一致性协议distro介绍/nacos的一致性协议distro介绍.md) `2020.04.19`
   
 
 ### 交流
