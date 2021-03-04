@@ -13,11 +13,11 @@
   - [实测Tengine开源的Dubbo功能](dubbo/实测Tengine开源的Dubbo功能/实测Tengine开源的Dubbo功能.md) -`2020.12.10`
   - [dubbo应用级服务发现初体验](dubbo/dubbo应用级服务发现初体验/dubbo应用级服务发现初体验.md) -`2020.09.02`
   - [当dubbo多注册中心碰上标签路由](dubbo/当dubbo多注册中心碰上标签路由/当dubbo多注册中心碰上标签路由.md) -`2020.04.18`
+  - [以为是青铜，没想到是王者的dubbo标签路由](dubbo/以为是青铜，没想到是王者的dubbo标签路由/以为是青铜，没想到是王者的dubbo标签路由.md) -`2020.04.12`
   
 - [服务发现](/服务发现)
   - [当我们谈注册中心时谈什么](服务发现/当我们谈注册中心时谈什么/当我们谈注册中心时谈什么.md) `2020.08.02`
-  - [nacos的一致性协议distro介绍](服务发现/nacos的一致性协议distro介绍/nacos的一致性协议distro介绍.md) `2020.04.19`
-  
+  - [nacos的一致性协议distro介绍](服务发现/nacos的一致性协议distro介绍/nacos的一致性协议distro介绍.md) `2020.04.19` 
 
 ### 交流
 1. 可以在本仓库提issue
