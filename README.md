@@ -17,6 +17,7 @@
   
 - [服务发现](/服务发现)
   - [当我们谈注册中心时谈什么](服务发现/当我们谈注册中心时谈什么/当我们谈注册中心时谈什么.md) `2020.08.02`
+  - [zookeeper到nacos的迁移实践](服务发现/zookeeper到nacos的迁移实践/zookeeper到nacos的迁移实践.md) `2020.05.23`
   - [nacos的一致性协议distro介绍](服务发现/nacos的一致性协议distro介绍/nacos的一致性协议distro介绍.md) `2020.04.19` 
 
 ### 交流
