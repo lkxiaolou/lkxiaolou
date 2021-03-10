@@ -27,7 +27,7 @@ Sentinel在docker中获取cpu利用率是有问题的。先看一下获取cpu利
 
 # 理解系统负荷
 
-初次看到这段代码是蒙圈的，主要是对cpu利用率与cpu load的定义不熟悉，查阅了一些资料得知cpu利用率是指程序的cpu占用时间除以程序的运行时间，比如单核情况下，一个java程序运行了10秒，其中占用了cpu 1秒，那么cpu利用率为10%，注意这个百分比并不一定小于100%，因为有多核的并行能力存在，比如一个4核的机器运行了一个java程序10秒，占用了每个核5秒的cpu时间，那么总的cpu占用时间是20秒，cpu利用率就是200%。但是在OperatingSystemMXBean的文档中指出将其归一化了，也就是cpu利用率再除以cpu核数。cpu load在阮一峰的文章[《理解linux系统负荷》](https://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html) （点击原文可查看）中能很好地解释清楚了，概括一下cpu load就是运行中的进程数加上等待运行的进程数。
+初次看到这段代码是蒙圈的，主要是对cpu利用率与cpu load的定义不熟悉，查阅了一些资料得知cpu利用率是指程序的cpu占用时间除以程序的运行时间，比如单核情况下，一个java程序运行了10秒，其中占用了cpu 1秒，那么cpu利用率为10%，注意这个百分比并不一定小于100%，因为有多核的并行能力存在，比如一个4核的机器运行了一个java程序10秒，占用了每个核5秒的cpu时间，那么总的cpu占用时间是20秒，cpu利用率就是200%。但是在OperatingSystemMXBean的文档中指出将其归一化了，也就是cpu利用率再除以cpu核数。cpu load在阮一峰的文章[《理解linux系统负荷》](https://www.ruanyifeng.com/blog/2011/07/linux_load_average_explained.html) 中能很好地解释清楚了，概括一下cpu load就是运行中的进程数加上等待运行的进程数。
 
 为什么有了cpu利用率还需要cpu load这个指标呢？因为在系统满负荷的情况下，同样是100%的cpu利用率，谁的负荷更高？就需要cpu load来比较了，cpu load不仅表示了当前的cpu利用率，也预示了未来的利用率。
 
