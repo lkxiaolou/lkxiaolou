@@ -9,11 +9,9 @@ Java的单元测试需要使用第三方库，一般是Junit，配置起来比�
 ```go
 package unit
 
-
 func add(a int, b int) int {
    return a + b
 }
-
 
 func sub(a int, b int) int {
    return a - b
@@ -28,11 +26,9 @@ import (
     "testing"
 )
 
-
 func TestAdd(t *testing.T) {
     assert.Equal(t, 10, add(5, 5))
 }
-
 
 func TestSub(t *testing.T) {
     assert.Equal(t, 0, sub(5, 5))
@@ -55,16 +51,13 @@ import (
    "testing"
 )
 
-
 func TestAdd(t *testing.T) {
    assert.Equal(t, 10, add(5, 5))
 }
 
-
 func TestSub(t *testing.T) {
    assert.Equal(t, 0, sub(5, 5))
 }
-
 
 func BenchmarkAdd(b *testing.B) {
    for i:= 0; i < b.N; i++ {
@@ -106,7 +99,6 @@ func main() {
     http.HandleFunc("/", handler)
     log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
-
 
 func handler(w http.ResponseWriter, r *http.Request) {
     time.Sleep(1 * time.Second)
