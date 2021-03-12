@@ -148,7 +148,7 @@ dubbo的服务级注册发现，与k8s容器编排的应用级服务发现相违
 
 ![捉虫大师](../../qrcode_small.jpg)
 
-- 原文链接: [https://mp.weixin.qq.com/s/hXddvr6tMdgSVln97mHBKw](https://mp.weixin.qq.com/s/hXddvr6tMdgSVln97mHBKw)
+- 原文链接: https://mp.weixin.qq.com/s/hXddvr6tMdgSVln97mHBKw
 - 发布时间: 2021.01.30
 
 

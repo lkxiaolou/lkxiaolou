@@ -122,6 +122,6 @@ dubbo协议的设计虽然有所欠缺，但依然不能阻止它成为dubbo使�
 
 ![捉虫大师](../../qrcode_small.jpg)
 
-- 原文链接: [https://mp.weixin.qq.com/s/l5F-lJSuuhXerI88e7_U9Q](https://mp.weixin.qq.com/s/l5F-lJSuuhXerI88e7_U9Q)
+- 原文链接: https://mp.weixin.qq.com/s/l5F-lJSuuhXerI88e7_U9Q
 - 发布时间: 2021.02.22
 

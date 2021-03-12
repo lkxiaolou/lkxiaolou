@@ -26,6 +26,7 @@
 
 - [其他](其他)
   - [盘点golang中的开发神器](其他/盘点golang中的开发神器/盘点golang中的开发神器.md) `2020.11.27`
+  - [OpenResty入门](其他/OpenResty入门/OpenResty入门.md) `2020.10.11`
 
 ### 交流
 1. 可以在本仓库提issue
