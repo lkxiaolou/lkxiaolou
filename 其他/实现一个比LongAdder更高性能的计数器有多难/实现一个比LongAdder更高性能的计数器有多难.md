@@ -93,7 +93,7 @@ LongAdderTest.testMyLongAdderV0          32  thrpt    2   85321816.442          
 # 取模优化(V1)
 注意到V0里面有一个取模的操作，这个操作可能比较耗时，可能会导致V0的性能甚至不如单个AtomicLong，可以通过移位操作来代替，但代替的前提是coreSize必须为2的n次方，如2，4，8，16（我们假定后续coreSize只取2的n次方），V1版本的代码如下：
 
-```
+```java
 public class MyLongAdderV1 {
 
     private final int coreSize;
@@ -149,7 +149,7 @@ public final class RingBuffer<E> extends RingBufferFields<E> {
 ```
 我们直接用java8的`@sun.misc.Contended`来对V1进行优化
 
-```
+```java
 public class MyLongAdderV2 {
 
     private static class AtomicLongWrap {
@@ -205,7 +205,7 @@ V0到V2版本均使用了线程id作为hash值来散列到不同的槽点，线�
 - 尝试hashCode
 java的每个对象都有一个hashCode，我们使用线程对象的hashCode来散列试试，版本V3关键改动如下
 
-```
+```java
 public void increment() {
     int index = Thread.currentThread().hashCode() & (coreSize - 1);
     counts[index].incrementAndGet();
@@ -223,7 +223,7 @@ LongAdderTest.testMyLongAdderV3  thrpt    2  103351246.650          ops/s
 
 当然使用Random当然不行，用性能更好的ThreadLocalRandom，V4版本关键改动如下
 
-```
+```java
 public void increment() {
       counts[ThreadLocalRandom.current().nextInt(coreSize)].value.incrementAndGet();
   }
@@ -240,7 +240,7 @@ LongAdderTest.testMyLongAdderV4  thrpt    2   95200307.226          ops/s
 
 为了优化V4版本，参考了LongAdder，算是一个黑科技，生成一个随机数存在Thread对象中，可以看一下Thread类，刚好有这个变量
 
-```
+```java
 /** Probe hash value; nonzero if threadLocalRandomSeed initialized */
 @sun.misc.Contended("tlr")
 int threadLocalRandomProbe;
