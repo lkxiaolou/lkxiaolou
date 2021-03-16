@@ -8,7 +8,7 @@ async-profiler是一款采集分析java性能的工具，翻译一下github上�
 > - 锁尝试，包括Java对象监视器和ReentrantLock
 
 # 使用方法
-首先下载async-profiler，github主页（https://github.com/jvm-profiling-tools/async-profiler）上有已经编译好的文件，找到对应的平台下载即可
+首先下载async-profiler，github主页（https://github.com/jvm-profiling-tools/async-profiler） 上有已经编译好的文件，找到对应的平台下载即可
 
 ![](img1.jpg)
 
