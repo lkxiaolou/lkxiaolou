@@ -9,7 +9,7 @@
 
 # 官方sample解读
 
-##（1）JMHSample01HelloWorld
+## （1）JMHSample01HelloWorld
 第一个例子教我们如何使用，在开始前，只需要引入依赖。类似单元测试，常放在test目录下运行。
 
 ![](img1.jpg)
@@ -22,7 +22,7 @@
 
 ![](img3.jpg)
 
-##（2）JMHSample02BenchmarkModes
+## （2）JMHSample02BenchmarkModes
 
 本例介绍了注解 @OutputTimeUnit 和 @BenchmarkMode。
 
@@ -39,7 +39,7 @@
 
 ![](img5.jpg)
 
-##（3）JMHSample03States
+## （3）JMHSample03States
 
 ![](img6.jpg)
 本例介绍了注解 @State 的用法，用于多线程的测试
@@ -50,17 +50,17 @@
 
 而且JMH可以像spring一样自动注入这些变量。
 
-##（4）JMHSample04DefaultState
+## （4）JMHSample04DefaultState
    
 本例介绍了 @State 注解可以直接写在 Benchmark 的测试类上，表明类的所有属性的作用域。 
 
-##（5）JMHSample05StateFixtures
+## （5）JMHSample05StateFixtures
 
 ![](img7.jpg)
 
 本例中介绍了两个注解 @Setup 和 @TearDown。 @Setup 用于基准测试前的初始化动作， @TearDown 用于基准测试后的动作
 
-##（6）JMHSample06FixtureLevel
+## （6）JMHSample06FixtureLevel
 
 @Setup 和 @TearDown两个注解都可以传入 Level 参数，Level参数表明粒度，粒度从粗到细分别是
 
@@ -68,43 +68,43 @@
 - Level.Iteration：执行迭代级别
 - Level.Invocation：每次方法调用级别
 
-##（7）JMHSample07FixtureLevelInvocation
+## （7）JMHSample07FixtureLevelInvocation
 
 本例中主要介绍了使用Level.Invocation达到每次方法执行完成后sleep一段时间，模拟在需要唤醒线程的情况下耗时更多。
 
-##（8）JMHSample08DeadCode
+## （8）JMHSample08DeadCode
 
 ![](img8.jpg)
 
 本例主要介绍了一个知识点：Dead-Code Elimination (DCE) ，即死码消除，文档上说编译器非常聪明，有的代码没啥用，就在编译器被消除了，但这给我做基准测试带了一些麻烦，比如上面的代码中，baseline 和 measureWrong 有着相同的性能，因为编译器觉得 measureWrong这段代码执行后没有任何影响，为了效率，就直接消除掉这段代码，但是如果加上return语句，就不会在编译期被去掉，这是我们在写基准测试时需要注意的点。
 
-##（9）JMHSample09Blackholes
+## （9）JMHSample09Blackholes
 
 本例是为了解决（8）中死码消除问题，JMH提供了一个 Blackholes （黑洞），这样写就不会被编译器消除了。
 
 ![](img9.jpg)
 
-##（10）JMHSample10ConstantFold
+## （10）JMHSample10ConstantFold
 
 ![](img10.jpg)
 
 本例介绍了 constant-folding，即常量折叠，上述代码的 measureWrong1 和 measureWrong2 中的运算都是可以预测的值，所以也会在编译期直接替换为计算结果，从而导致基准测试失败，注意 final 修饰的变量也会被折叠。
 
-##（11）JMHSample11Loops
+## （11）JMHSample11Loops
 
 本例直接给出一个结论，不要在基准测试的时候使用循环，使用循环就会导致测试结果不准确，原因很复杂，甚至可以单独写一篇文章来介绍。简单能理解的一点是如果使用循环，预热可能就会存在问题。
 
 ![](img11.jpg)
 
-##（12）JMHSample12Forking
+## （12）JMHSample12Forking
   
 本例介绍了 @Fork 注解，@Fork 可以指定代码运行时是否需要 fork 出一个JVM进程，如果在同一个JVM中测试则会相互影响，一般fork进程设置为1。
 
-##（13）JMHSample13RunToRun
+## （13）JMHSample13RunToRun
   
 由于JVM的复杂性，每次测试结果都有差异，可以使用 @Fork 注解启动多个 JVM 经过多次测试来消除这种差异。
 
-##（15）JMHSample15Asymmetric
+## （15）JMHSample15Asymmetric
 
 原来没有14，直接跳到了15
 
@@ -116,7 +116,7 @@
 
 执行完的数据包含get、inc、和整个组的统计，这样数据更直观，更全面。
 
-## （16）JMHSample16CompilerControl
+##  （16）JMHSample16CompilerControl
    
 本例提到了JVM的方法内联，简单来说比较短但是执行频率又很高的方法，在执行多次后，JVM将该方法的调用替换为本身，以减少出栈入栈，从而减少性能的消耗。但是Java方法内联是无法人为控制的。
 
@@ -130,7 +130,7 @@ JMH提供了可以控制是否使用内联的注解 @CompilerControl ，它的�
 
 从执行结果可以看到内联方法和空方法执行速度一样，不编译执行最慢。
 
-##（17）JMHSample17SyncIterations
+## （17）JMHSample17SyncIterations
   
 本例阐述了在多线程条件下，线程池的启动与销毁都会影响基准测试的准确性，如果自己来实现需要让线程同时开始启动工作，但这又比较难做到，如果在启动和关闭线程池时，无法做到同时，那么测量必定不准确，因为无法确定开始和结束时间；JMH提供了多线程基准测试的方法，先让线程池预热，都预热完成后让所有线程同时进行基准测试，测试完等待所有线程都结束再关闭线程池。
 
@@ -146,7 +146,7 @@ JMH提供了可以控制是否使用内联的注解 @CompilerControl ，它的�
 
 当syncIterations设置为true时更准确地反应了多线程下被测试方法的性能，这个参数默认为true，无需手动设置。
 
-##（18）JMHSample18Control
+## （18）JMHSample18Control
   
 本例介绍了使用 Control 的场景
 
@@ -154,13 +154,13 @@ JMH提供了可以控制是否使用内联的注解 @CompilerControl ，它的�
 
 如果测试一个线程组对一个AtomicBoolean分别进行set true 和 set false操作，我们知道只有一个线程set true成功，另一个线程才能对其set false，否则另一个线程就陷入死锁，但我们的测试用例两个方法的执行不是均匀成对的，所以极大概率测试会陷入死锁，这时需要JMH提供的Control进行控制，当测量结束，双方都退出循环。
 
-##（20）JMHSample20Annotations
+## （20）JMHSample20Annotations
   
 19也不存在。本例介绍了所有在main方法中通过Options提供的参数都可以通过注解写在需要测试的方法上，这在编写大量需要不同运行环境的基准测试时显得非常方便，比如这样
 
 ![](img19.jpg)
 
-##（21）JMHSample21ConsumeCPU
+## （21）JMHSample21ConsumeCPU
   
 本例介绍了Blackhole的另一种用法，前面提到的Blackhole可以用来干掉“死码消除”，同时Blackhole也可以“吞噬”cpu时间片（怪不得起这个名字）
 
@@ -168,11 +168,11 @@ JMH提供了可以控制是否使用内联的注解 @CompilerControl ，它的�
 
 Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系。
 
-##（22）JMHSample22FalseSharing
+## （22）JMHSample22FalseSharing
   
 从名字可知本例是说false-sharing，即伪共享，关于伪共享这里就不再展开，后续会写一篇文章专门介绍伪共享。尽管JMH中提供的 @State 会自动填充缓存行，但是对于对象中特定的单个变量还是无法填充，所以本例介绍了4种方式来消除伪共享，需要我们自己注意。
 
-##（23）JMHSample23AuxCounters
+## （23）JMHSample23AuxCounters
   
 本例介绍了注解 @AuxCounters ，它是一个辅助计数器，可以统计 @State 修饰的对象中的 public 属性被执行的情况，它的参数有两个
 
@@ -185,7 +185,7 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 
 ![](img22.jpg)
 
-##（24）JMHSample24Inheritance
+## （24）JMHSample24Inheritance
   
 本例介绍了JMH在父类中定义了Benchmark，子类也会继承并合成自己的Benchmark，这是JMH在编译期完成的，如果不是由JMH来编译，就无法享受这种继承。
 
@@ -195,16 +195,16 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 
 ![](img24.jpg)
 
-##（25）JMHSample25API_GA
+## （25）JMHSample25API_GA
   
 本例介绍了如何用API的方式来写基准测试代码，比较复杂，个人觉得还是注解的方式简单。
 
-##（26）JMHSample26BatchSize
+## （26）JMHSample26BatchSize
 本例介绍了 batchSize，指定一次迭代方法需要执行 batchSize 次
 
 ![](img25.jpg)
 
-##（27）JMHSample27Params
+## （27）JMHSample27Params
   
 本例介绍 @Param ，@Param 允许使用一份基准测试代码跑多组数据，特别适合测量方法性能和参数取值的关系
 
@@ -214,17 +214,17 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 
 ![](img27.jpg)
 
-##（28）JMHSample28BlackholeHelpers
+## （28）JMHSample28BlackholeHelpers
   
 本例介绍了 Blackhole 不仅可以用在 Benchmark 修饰的方法上，也可以用在其他JMH提供的方法上，比如 @Setup 和 @TearDown 等等
 
 ![](img28.jpg)
 
-##（29）JMHSample29StatesDAG
+## （29）JMHSample29StatesDAG
   
 本例展示了 @State 中嵌套 @State 的情况，不过想不出为啥需要这样做，例子中也说这是个实验性质的Feature。
 
-##（30）JMHSample30Interrupts
+## （30）JMHSample30Interrupts
   
 本例类似（18），也是在测试时遇到死锁的情况，JMH可对能被Interrupt的超时动作发起Interrupt动作，让测试正常结束。如对一个BlockQueue进行put和take操作，如果put和get不对称，就会死锁，此时JMH会自行打断。
 
@@ -234,7 +234,7 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 
 ![](img30.jpg)
 
-##（31）JMHSample31InfraParams
+## （31）JMHSample31InfraParams
   
 本例介绍了在方法中可覆盖的三种参数，这给在测试时获取配置以及动态修改配置提供了可能
 
@@ -244,7 +244,7 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 
 ![](img31.jpg)
 
-##（32）JMHSample32BulkWarmup
+## （32）JMHSample32BulkWarmup
   
 本例介绍了三种预热方式：
 
@@ -252,11 +252,11 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 - WarmupMode.BULK：在每个Benchmark执行前都预热所有的Benchmark
 - WarmupMode.BULK_INDI：在每个Benchmark执行前都预热所有的Benchmark，且需要再预热本次执行的Benchmark
 
-##（33）JMHSample33SecurityManager
+## （33）JMHSample33SecurityManager
   
 关于 SecurityManager ，可以通过注入的方式来修改 SecurityManager，用处不大。
 
-##（34）JMHSample34SafeLooping
+## （34）JMHSample34SafeLooping
   
 这节专门讲如何构造安全的循环，和前面的内容稍有重复
 
@@ -264,7 +264,7 @@ Blackhole.consumeCPU的参数是时间片的tokens，和时间片成线性关系
 
 measureWrong1和measureWrong2都可能在编译时被展开，后面两种正确的方式在前面都提过。
 
-##（35）JMHSample35Profilers
+## （35）JMHSample35Profilers
   
 本例讲解了如何使用JMH内置的性能剖析工具查看基准测试消耗在什么地方，具体的剖析方式内置的有如下几种：
 
@@ -283,15 +283,15 @@ measureWrong1和measureWrong2都可能在编译时被展开，后面两种正确
 
 ![](img33.jpg)
 
-##（36）JMHSample36BranchPrediction
+## （36）JMHSample36BranchPrediction
 
 本例提醒我们要注意“分支预测”，简单来说，分支预测是CPU在处理有规律的数据比没有规律的数据要快，CPU可以“预测”这种规律。我们在基准测试时需要注意样本数据的规律性对结果也会产生影响。
 
-##（37）JMHSample37CacheAccess
+## （37）JMHSample37CacheAccess
   
 本例提醒我们对内存的顺序访问与非顺序访问会对测试结果产生影响，这点也是因为CPU存在缓存行的缘故，与之前提到的伪共享类似。
 
-##（38）JMHSample38PerInvokeSetup
+## （38）JMHSample38PerInvokeSetup
   
 本例也是之前提到过的在每次调用前执行Setup，使用它可以测量排序性能，如果Setup不在每次执行排序时执行，那么只有第一次排序是执行了排序，后面每次排序的都是相同顺序的数据。
 
