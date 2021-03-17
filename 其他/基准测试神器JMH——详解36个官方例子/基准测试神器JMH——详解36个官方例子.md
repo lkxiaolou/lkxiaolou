@@ -5,7 +5,7 @@
 
 # 为什么需要
 
-有人可能会说，我可以在代码的前后打点计算代码运行时间，为什么还需要JMH？下面着重介绍一下JMH的常用功能，都来源于官方提供的sample，相信看完这些例子，就能回答这个问题了，官方sample地址点击阅读原文可查看。
+有人可能会说，我可以在代码的前后打点计算代码运行时间，为什么还需要JMH？下面着重介绍一下JMH的常用功能，都来源于官方提供的sample，相信看完这些例子，就能回答这个问题了，[官方sample地址点击查看](http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/)。
 
 # 官方sample解读
 
