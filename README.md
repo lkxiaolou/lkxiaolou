@@ -6,7 +6,8 @@
 
 ### 文章列表(25)
 
-- [dubbo(10)](dubbo)
+- [dubbo(11)](dubbo)
+  - [升级dubbo，小心default.version](dubbo/升级dubbo，小心default.version/升级dubbo，小心default.version.md) `2021.04.02`
   - [几个你不知道的dubbo注册中心细节](dubbo/几个你不知道的dubbo注册中心细节/几个你不知道的dubbo注册中心细节.md) `2021.03.15`
   - [聊聊dubbo协议2](dubbo/聊聊dubbo协议2/聊聊dubbo协议2.md) `2021.02.27`
   - [聊聊dubbo协议](dubbo/聊聊dubbo协议/聊聊dubbo协议.md) `2021.02.22`
