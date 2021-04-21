@@ -31,7 +31,9 @@
   - [Sentinel在docker中获取CPU利用率的一个BUG](问题排查/Sentinel在docker中获取CPU利用率的一个BUG/Sentinel在docker中获取CPU利用率的一个BUG.md) `2020.04.11` 
   - [记一次spring注解@Value不生效的深度排查](问题排查/记一次spring注解@Value不生效的深度排查/记一次spring注解@Value不生效的深度排查.md) `2020.04.06` 
 
-- [其他(8)](其他)
+- [其他(10)](其他)
+  - [ShutdownHook原理](其他/shutdownHook原理/shutdownHook原理.md) `2021.04.21`
+  - [低开销获取时间戳](其他/低开销获取时间戳/低开销获取时间戳.md) `2021.04.14`
   - [Cobar SQL审计的设计与实现](其他/Cobar%20SQL审计的设计与实现/Cobar%20SQL审计的设计与实现.md) `2021.03.21`
   - [盘点golang中的开发神器](其他/盘点golang中的开发神器/盘点golang中的开发神器.md) `2020.11.27`
   - [OpenResty入门](其他/OpenResty入门/OpenResty入门.md) `2020.10.11`
