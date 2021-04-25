@@ -176,7 +176,7 @@ public static void main(String[] args) {
 - ShutdownHook 覆盖的面比较广，不论是手动调用接口退出进程，还是捕获信号退出进程，抑或是用户线程执行完毕退出，都会执行ShutdownHook，唯一不会执行的就是kill -9
 
 ---
-欢迎关注我的公众号
+> 关于作者：专注后端的中间件开发，公众号"捉虫大师"作者，关注我，给你朴实无华的技术干货
 
 ![捉虫大师](../../qrcode_small.jpg)
 
