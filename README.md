@@ -4,9 +4,10 @@
 
 ![捉虫大师](./qrcode_small.jpg)
 
-### 文章列表(25)
+### 文章列表(30)
 
-- [dubbo(11)](dubbo)
+- [dubbo(12)](dubbo)
+  - [排查dubbo接口重复注销问题，我发现了一个巧妙的设计](dubbo/排查dubbo接口重复注销问题，我发现了一个巧妙的设计/排查dubbo接口重复注销问题，我发现了一个巧妙的设计.md) `2021.04.28`
   - [升级dubbo，小心default.version](dubbo/升级dubbo，小心default.version/升级dubbo，小心default.version.md) `2021.04.02`
   - [几个你不知道的dubbo注册中心细节](dubbo/几个你不知道的dubbo注册中心细节/几个你不知道的dubbo注册中心细节.md) `2021.03.15`
   - [聊聊dubbo协议2](dubbo/聊聊dubbo协议2/聊聊dubbo协议2.md) `2021.02.27`
