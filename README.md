@@ -33,7 +33,7 @@
   - [记一次spring注解@Value不生效的深度排查](问题排查/记一次spring注解@Value不生效的深度排查/记一次spring注解@Value不生效的深度排查.md) `2020.04.06` 
 
 - [其他(11)](其他)
-  - [rocketmq优雅停机往事](其他/rocketmq优雅停机往事/rocketmq优雅停机往事.md) `2021.05.08`
+  - [rocketmq优雅停机往事](其他/rocketmq优雅停机往事/rocketmq优雅停机往事.md) [![掘金](ico/juejin.ico)](https://juejin.cn/post/6959770172932489252) `2021.05.08`
   - [ShutdownHook原理](其他/shutdownHook原理/shutdownHook原理.md) `2021.04.21`
   - [低开销获取时间戳](其他/低开销获取时间戳/低开销获取时间戳.md) `2021.04.14`
   - [Cobar SQL审计的设计与实现](其他/Cobar%20SQL审计的设计与实现/Cobar%20SQL审计的设计与实现.md) `2021.03.21`
