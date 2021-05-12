@@ -23,7 +23,7 @@
 - [服务发现(3)](服务发现)
   - [当我们谈注册中心时谈什么](服务发现/当我们谈注册中心时谈什么/当我们谈注册中心时谈什么.md) [<img src="https://juejin.cn/favicon.ico" weight="20" height="20">](https://juejin.cn/post/6859322919143604231) `2020.08.02`
   - [zookeeper到nacos的迁移实践](服务发现/zookeeper到nacos的迁移实践/zookeeper到nacos的迁移实践.md) [<img src="https://juejin.cn/favicon.ico" weight="20" height="20">](https://juejin.cn/post/6844904167924826119) `2020.05.23`
-  - [nacos的一致性协议distro介绍](服务发现/nacos的一致性协议distro介绍/nacos的一致性协议distro介绍.md) `2020.04.19` 
+  - [nacos的一致性协议distro介绍](服务发现/nacos的一致性协议distro介绍/nacos的一致性协议distro介绍.md) [<img src="https://juejin.cn/favicon.ico" weight="20" height="20">](https://juejin.cn/post/6961235477760311327)  `2020.04.19` 
 
 - [问题排查(5)](问题排查)
   - [cpu分析利器 — async-profiler](问题排查/cpu分析利器%20—%20async-profiler/cpu分析利器%20—%20async-profiler.md) [<img src="https://juejin.cn/favicon.ico" weight="20" height="20">](https://juejin.cn/post/6844904180671315975) `2020-05-31`
