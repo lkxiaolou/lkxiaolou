@@ -12,5 +12,10 @@ func main() {
 	if err == nil {
 		err = toolx.FormatReadMe(base+"/README.md.template", base+"/README_NEW.md")
 	}
-	fmt.Println(err)
+
+	if err == nil {
+		fmt.Println("生成成功!")
+	} else {
+		fmt.Println("出错" + err.Error())
+	}
 }

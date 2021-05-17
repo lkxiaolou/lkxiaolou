@@ -155,7 +155,4 @@ private boolean casPair(Pair<V> cmp, Pair<V> val) {
 
 ![捉虫大师](../../qrcode_small.jpg)
 
-- 原文链接: https://mp.weixin.qq.com/s/riBsXBrIjkOLe7SCtbX8vQ
-- 发布时间: 2020.05.13
-
 

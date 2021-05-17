@@ -40,11 +40,3 @@ Sentinel在docker中获取cpu利用率是有问题的。先看一下获取cpu利
 > 关于作者：专注后端的中间件开发，公众号"捉虫大师"作者，关注我，给你最纯粹的技术干货
 
 ![捉虫大师](../../qrcode_small.jpg)
-
-- 原文链接: https://mp.weixin.qq.com/s/AHJKyIwwsRUy_SlIruZTiQ
-- 发布时间: 2020.04.11
-
-
-
-
-

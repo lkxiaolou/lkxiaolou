@@ -7,123 +7,183 @@ import (
 	"strings"
 )
 
-func FormatReadMe(templateFile string, outputFile string) error {
-	file, err := os.OpenFile(templateFile, os.O_RDONLY, 0600)
+const (
+	SEQ  = "%seq"
+	READ = "%read"
+	DATE = "%date"
+)
+
+func readFile(filePath string) (string, error) {
+	file, err := os.OpenFile(filePath, os.O_RDONLY, 0600)
+	if err != nil {
+		return "", err
+	}
+	defer file.Close()
+
+	content, err := ioutil.ReadAll(file)
+	if err != nil {
+		return "", err
+	}
+	return string(content), nil
+}
+
+func writeFile(filePath string, content string) error {
+	newFile, err := os.Create(filePath)
+	defer newFile.Close()
+
 	if err != nil {
 		return err
 	}
-	defer file.Close()
-	content, err := ioutil.ReadAll(file)
+	_, err = newFile.WriteString(content)
+	return err
+}
+
+func handleOneTab(tab string) (string, map[string]string) {
+
+	tabContent := strings.Builder{}
+
+	context := make(map[string]string)
+
+	if strings.Contains(tab, "http") {
+
+		urls := parseUrls(tab)
+		icoMap := getIcoMap(urls)
+
+		if len(icoMap) == 0 {
+			return tab, context
+		} else {
+			icoIndex := IcoMin
+			subs := strings.Split(tab, " ")
+			for _, sub := range subs {
+				trimedSub := strings.TrimSpace(sub)
+				if len(trimedSub) == 0 {
+					tabContent.WriteString(sub)
+				} else {
+					if strings.HasPrefix(trimedSub, "http") {
+						for icoIndex <= IcoMax {
+							if ico, ok := icoMap[icoIndex]; ok {
+								tabContent.WriteString(ico)
+								icoIndex++
+								break
+							} else {
+								icoIndex++
+							}
+						}
+					} else {
+						tabContent.WriteString(sub)
+					}
+				}
+				tabContent.WriteString(" ")
+			}
+		}
+		tab = tabContent.String()
+
+		readCount := getReadCount(urls)
+		context[READ] = strconv.Itoa(readCount)
+
+		date := getDate(urls)
+		context[DATE] = date
+	}
+
+	return tab, context
+}
+
+func handleOneLine(line string, lastSeq int) (string, int) {
+
+	lineContent := &strings.Builder{}
+
+	trimedLine := strings.TrimSpace(line)
+	var tabStr string
+	var context map[string]string
+	var tmpContext map[string]string
+
+	if strings.HasPrefix(trimedLine, "|") {
+		tabs := strings.Split(trimedLine, "|")
+		for i, tab := range tabs {
+			tabStr, tmpContext = handleOneTab(tab)
+			if len(tmpContext) > 0 {
+				context = tmpContext
+			}
+			lineContent.WriteString(tabStr)
+			if i+1 < len(tabs) {
+				lineContent.WriteString("|")
+			}
+		}
+	} else {
+		lineContent.WriteString(line)
+	}
+
+	lineStr := lineContent.String()
+	if strings.Contains(lineStr, SEQ) {
+		lastSeq = lastSeq + 1
+		lineStr = strings.ReplaceAll(lineStr, SEQ, strconv.Itoa(lastSeq))
+	}
+	if date, ok := context[DATE]; ok {
+		lineStr = strings.ReplaceAll(lineStr, DATE, date)
+	}
+	if read, ok := context[READ]; ok {
+		lineStr = strings.ReplaceAll(lineStr, READ, read)
+	}
+
+	return lineStr, lastSeq
+}
+
+func FormatReadMe(templateFile string, outputFile string) error {
+	content, err := readFile(templateFile)
 	if err != nil {
 		return err
 	}
 
 	finalContent := strings.Builder{}
-	totalCount := 0
-	subTotal := 0
-	replaceCount := 0
 
-	lines := strings.Split(string(content), "\n")
-	for _, line := range lines {
-		if strings.Contains(line, "%d") {
-			replaceCount++
-		}
-	}
-
-	totals := make([]int, replaceCount)
-	totalIndex := 0
-	curIndex := 0
-	endCount := false
+	lines := strings.Split(content, "\n")
+	seq := 0
+	var lineStr string
 
 	for _, line := range lines {
-		trimedLine := strings.TrimSpace(line)
-
-		if strings.Contains(line, "%d") {
-			if curIndex != totalIndex {
-				if endCount {
-					totals[curIndex] = subTotal
-					curIndex++
-					endCount = false
-				}
-				if !endCount {
-					endCount = true
-				}
-				subTotal = 0
-			} else {
-				curIndex++
-			}
-		}
-
-		if strings.HasPrefix(trimedLine, "-") {
-			icoMap := handleLine(trimedLine)
-			if len(icoMap) == 0 {
-				finalContent.WriteString(line)
-			} else {
-				totalCount++
-				subTotal++
-				icoIndex := IcoMin
-				subs := strings.Split(line, " ")
-				for _, sub := range subs {
-					trimedSub := strings.TrimSpace(sub)
-					if len(trimedSub) == 0 {
-						finalContent.WriteString(sub)
-					} else {
-						if strings.HasPrefix(trimedSub, "http") {
-							for icoIndex <= IcoMax {
-								if ico, ok := icoMap[icoIndex]; ok {
-									finalContent.WriteString(ico)
-									icoIndex++
-									break
-								} else {
-									icoIndex++
-								}
-							}
-						} else {
-							finalContent.WriteString(sub)
-						}
-					}
-					finalContent.WriteString(" ")
-				}
-			}
-		} else {
-			finalContent.WriteString(line)
-		}
+		lineStr, seq = handleOneLine(line, seq)
+		finalContent.WriteString(lineStr)
 		finalContent.WriteString("\n")
 	}
 
-	if endCount {
-		totals[curIndex] = subTotal
-	}
-
-	totals[totalIndex] = totalCount
-	finalContentStr := finalContent.String()
-	for _, total := range totals {
-		finalContentStr = strings.Replace(finalContentStr, "%d", strconv.Itoa(total), 1)
-	}
-
-	// 写入文件
-	newFile, err := os.Create(outputFile)
-	if err != nil {
-		return err
-	}
-	_, err = newFile.WriteString(finalContentStr)
-	return err
+	return writeFile(outputFile, finalContent.String())
 }
 
-func handleLine(line string) map[int]string {
-	ss := strings.Split(line, " ")
-
-	icoMap := make(map[int]string)
-
+func parseUrls(tab string) []string {
+	ss := strings.Split(tab, " ")
+	urls := make([]string, 0)
 	for _, s := range ss {
 		st := strings.TrimSpace(s)
 		if strings.HasPrefix(st, "http") {
-			ico, icoType := GetIconLink(st)
-			if icoType != IcoUnknown {
-				icoMap[icoType] = ico
-			}
+			urls = append(urls, st)
 		}
 	}
+	return urls
+}
 
+func getIcoMap(urls []string) map[int]string {
+	icoMap := make(map[int]string)
+	for _, u := range urls {
+		ico, icoType := GetIconLink(u)
+		if icoType != IcoUnknown {
+			icoMap[icoType] = ico
+		}
+	}
 	return icoMap
+}
+
+func getReadCount(urls []string) int {
+	return 0
+}
+
+func getDate(urls []string) string {
+	for _, u := range urls {
+		if strings.Contains(u, wechatHost) {
+			//content, err := HttpGetWithCache(u)
+			//if err == nil {
+			//	fmt.Println(content)
+			//}
+		}
+	}
+	return ""
 }

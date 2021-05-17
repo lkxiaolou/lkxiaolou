@@ -145,6 +145,3 @@ Cobar的SQL审计在上线后稳定支撑了公司所有Cobar集群，是承载�
 > 关于作者：专注后端的中间件开发，公众号"捉虫大师"作者，关注我，给你最纯粹的技术干货
 
 ![捉虫大师](../../qrcode_small.jpg)
-
-- 原文链接：https://mp.weixin.qq.com/s/OEuZIfbKba8sq_rect809w
-- 发布时间: 2021.03.21
