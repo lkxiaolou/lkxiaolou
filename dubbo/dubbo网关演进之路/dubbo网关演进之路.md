@@ -120,6 +120,3 @@
 ---
 
 ![捉虫大师](../../qrcode_small.jpg)
-
-- 原文链接: https://mp.weixin.qq.com/s/qyD-8ovFoZW_N5eAxEY20w
-- 发布时间: 2020.07.02
