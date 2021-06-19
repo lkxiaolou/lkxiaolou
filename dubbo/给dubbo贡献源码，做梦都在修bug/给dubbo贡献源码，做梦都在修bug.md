@@ -95,11 +95,11 @@ public void doSubscribe(final URL url, final NotifyListener listener) {
 - 如果过期则去redis取一次最新的数据进行检查（防止续期事件丢失）
 - 如果真的过期了，就认为这个provider不健康
 
-![](2.png)
+![](3.png)
 
 思路比较简单，10分钟便写出了个demo，用上文的验证方法进行验证，果然好使
 
-![](https://files.mdnice.com/user/6104/f56d4591-83f9-4358-b27c-df0450d00411.png)
+![](2.png)
 
 ## 三
 好久没有给社区贡献过源码了，于是就这样简单的提上去了，过了两天收到了评论
@@ -131,9 +131,9 @@ emmm，忘了，要用英文，改完又过了两天，收到评论
 第二天，早上来看，真的少写了个`break`！！！
 
 
-![](https://files.mdnice.com/user/6104/a8729a9c-f1ff-4a0f-b3fc-11f2c4ae49bf.png)
+![](4.png)
 
-![](https://files.mdnice.com/user/6104/9623926d-42a6-4b5c-ad59-3922ef3eaaa6.png)
+![](5.png)
 
 
 又过了2天，收到评论
