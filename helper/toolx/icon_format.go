@@ -57,7 +57,7 @@ const (
 	IcoMdNice     = 9
 
 	IcoMin = 1
-	IcoMax = 8
+	IcoMax = 9
 )
 
 func GetIconLink(articleUrl string) (string, int) {
