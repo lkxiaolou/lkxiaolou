@@ -122,6 +122,3 @@ ZookeeperRegistry中有个zkListeners存储了订阅了哪些URL，如果能检�
 ---
 
 ![捉虫大师](../../qrcode_small.jpg)
-
-- 原文链接: https://mp.weixin.qq.com/s/_hon_kgQfV-xwBR8Hfa9dA
-- 发布时间: 2020.04.23
