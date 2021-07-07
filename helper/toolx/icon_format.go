@@ -42,6 +42,9 @@ const (
 
 	mdNiceIcoUrl = "https://mdnice.com/favicon.ico"
 	mdNiceHost   = "mdnice.com"
+
+	cnBlogsIcoUrl = "https://www.cnblogs.com/favicon.ico"
+	cnBlogsHost   = "cnblogs.com"
 )
 
 const (
@@ -55,9 +58,10 @@ const (
 	IcoInfoq      = 7
 	IcoHelloworld = 8
 	IcoMdNice     = 9
+	IcoCnBlogs    = 10
 
 	IcoMin = 1
-	IcoMax = 9
+	IcoMax = 10
 )
 
 func GetIconLink(articleUrl string) (string, int) {
@@ -79,6 +83,8 @@ func GetIconLink(articleUrl string) (string, int) {
 		return fmt.Sprintf(icoFormat, helloworldIcoUrl, articleUrl), IcoHelloworld
 	} else if strings.Contains(articleUrl, mdNiceHost) {
 		return fmt.Sprintf(icoFormat, mdNiceIcoUrl, articleUrl), IcoMdNice
+	} else if strings.Contains(articleUrl, cnBlogsHost) {
+		return fmt.Sprintf(icoFormat, cnBlogsIcoUrl, articleUrl), IcoCnBlogs
 	}
 	return "", IcoUnknown
 }
