@@ -55,8 +55,5 @@
 
 ![捉虫大师](../../qrcode_small.jpg)
 
-- 原文链接: https://mp.weixin.qq.com/s/QpaSOj9Ca_wlQLT_4vOWWA
-- 发布时间: 2020.04.12
-
 
 
