@@ -11,7 +11,7 @@ http接口测试只需要一个`curl`命令，但dubbo协议没有这样的现�
 
 对于方案1，实现成本很低，甚至可以在服务器上直接用telnet测试
 
-![](1.png)
+![](../../../../../IdeaProjects/dubbogo.github.io/img/blog/dubbo-go-test-platform.resources/1.png)
 
 它也有缺点
 - 调用无法经过filter
@@ -142,7 +142,7 @@ func call() {
 ```
 这里我设置了一个attachment，也能正常被provider识别
 
-![](2.png)
+![](../../../../../IdeaProjects/dubbogo.github.io/img/blog/dubbo-go-test-platform.resources/2.png)
 
 # 泛化调用原理
 
