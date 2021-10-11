@@ -45,6 +45,9 @@ const (
 
 	cnBlogsIcoUrl = "https://www.cnblogs.com/favicon.ico"
 	cnBlogsHost   = "cnblogs.com"
+
+	toutiaoIcoUrl = "https://www.toutiao.com/favicon.ico"
+	toutiaoHost   = "toutiao.com"
 )
 
 const (
@@ -59,9 +62,10 @@ const (
 	IcoHelloworld = 8
 	IcoMdNice     = 9
 	IcoCnBlogs    = 10
+	IcoToutiao    = 11
 
 	IcoMin = 1
-	IcoMax = 10
+	IcoMax = 11
 )
 
 func GetIconLink(articleUrl string) (string, int) {
@@ -85,6 +89,8 @@ func GetIconLink(articleUrl string) (string, int) {
 		return fmt.Sprintf(icoFormat, mdNiceIcoUrl, articleUrl), IcoMdNice
 	} else if strings.Contains(articleUrl, cnBlogsHost) {
 		return fmt.Sprintf(icoFormat, cnBlogsIcoUrl, articleUrl), IcoCnBlogs
+	} else if strings.Contains(articleUrl, toutiaoHost) {
+		return fmt.Sprintf(icoFormat, toutiaoIcoUrl, articleUrl), IcoToutiao
 	}
 	return "", IcoUnknown
 }
