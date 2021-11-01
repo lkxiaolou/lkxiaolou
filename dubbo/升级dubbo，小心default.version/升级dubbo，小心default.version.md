@@ -88,6 +88,3 @@ public String getParameter(String key) {
 > 关于作者：专注后端的中间件开发，公众号"捉虫大师"作者，关注我，给你最纯粹的技术干货
 
 ![捉虫大师](../../qrcode_small.jpg)
-
-- 原文链接: https://mp.weixin.qq.com/s/hm1OTOma__6UIMYa3wfmxg
-- 发布时间: 2021.04.02
