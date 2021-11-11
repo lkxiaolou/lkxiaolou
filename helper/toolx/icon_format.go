@@ -37,12 +37,6 @@ const (
 	infoqIcoUrl = "https://static001.infoq.cn/static/infoq/favicon/favicon-32x32.png"
 	infoqHost   = "infoq.cn"
 
-	helloworldIcoUrl = "https://www.helloworld.net/favicon.ico"
-	helloworldHost   = "helloworld.net"
-
-	mdNiceIcoUrl = "https://mdnice.com/favicon.ico"
-	mdNiceHost   = "mdnice.com"
-
 	cnBlogsIcoUrl = "https://www.cnblogs.com/favicon.ico"
 	cnBlogsHost   = "cnblogs.com"
 
@@ -51,21 +45,19 @@ const (
 )
 
 const (
-	IcoUnknown    = 0
-	IcoWechat     = 1
-	IcoJuejin     = 2
-	IcoZhihu      = 3
-	IcoTencent    = 4
-	IcoCsdn       = 5
-	IcoJianshu    = 6
-	IcoInfoq      = 7
-	IcoHelloworld = 8
-	IcoMdNice     = 9
-	IcoCnBlogs    = 10
-	IcoToutiao    = 11
+	IcoUnknown = 0
+	IcoWechat  = 1
+	IcoJuejin  = 2
+	IcoZhihu   = 3
+	IcoTencent = 4
+	IcoCsdn    = 5
+	IcoJianshu = 6
+	IcoInfoq   = 7
+	IcoCnBlogs = 8
+	IcoToutiao = 9
 
 	IcoMin = 1
-	IcoMax = 11
+	IcoMax = 9
 )
 
 func GetIconLink(articleUrl string) (string, int) {
@@ -83,10 +75,6 @@ func GetIconLink(articleUrl string) (string, int) {
 		return fmt.Sprintf(icoFormat, jianshuIcoUrl, articleUrl), IcoJianshu
 	} else if strings.Contains(articleUrl, infoqHost) {
 		return fmt.Sprintf(icoFormat, infoqIcoUrl, articleUrl), IcoInfoq
-	} else if strings.Contains(articleUrl, helloworldHost) {
-		return fmt.Sprintf(icoFormat, helloworldIcoUrl, articleUrl), IcoHelloworld
-	} else if strings.Contains(articleUrl, mdNiceHost) {
-		return fmt.Sprintf(icoFormat, mdNiceIcoUrl, articleUrl), IcoMdNice
 	} else if strings.Contains(articleUrl, cnBlogsHost) {
 		return fmt.Sprintf(icoFormat, cnBlogsIcoUrl, articleUrl), IcoCnBlogs
 	} else if strings.Contains(articleUrl, toutiaoHost) {
