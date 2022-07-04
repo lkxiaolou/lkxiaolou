@@ -10,7 +10,7 @@ func main() {
 
 	base, err := os.Getwd()
 	if err == nil {
-		err = toolx.FormatReadMe(base+"/README.md.template", base+"/README.md")
+		err = toolx.FormatReadMe(base+"/../README.md.template", base+"/../README.md")
 	}
 
 	if err == nil {
