@@ -42,22 +42,26 @@ const (
 
 	toutiaoIcoUrl = "https://www.toutiao.com/favicon.ico"
 	toutiaoHost   = "toutiao.com"
+
+	heapDumpIcoUrl = "https://heapdump.cn/favicon.ico"
+	heapDumpHost   = "heapdump.cn"
 )
 
 const (
-	IcoUnknown = 0
-	IcoWechat  = 1
-	IcoJuejin  = 2
-	IcoZhihu   = 3
-	IcoTencent = 4
-	IcoCsdn    = 5
-	IcoJianshu = 6
-	IcoInfoq   = 7
-	IcoCnBlogs = 8
-	IcoToutiao = 9
+	IcoUnknown  = 0
+	IcoWechat   = 1
+	IcoJuejin   = 2
+	IcoZhihu    = 3
+	IcoTencent  = 4
+	IcoCsdn     = 5
+	IcoJianshu  = 6
+	IcoInfoq    = 7
+	IcoCnBlogs  = 8
+	IcoToutiao  = 9
+	IcoHeapDump = 10
 
 	IcoMin = 1
-	IcoMax = 9
+	IcoMax = 10
 )
 
 func GetIconLink(articleUrl string) (string, int) {
@@ -79,6 +83,8 @@ func GetIconLink(articleUrl string) (string, int) {
 		return fmt.Sprintf(icoFormat, cnBlogsIcoUrl, articleUrl), IcoCnBlogs
 	} else if strings.Contains(articleUrl, toutiaoHost) {
 		return fmt.Sprintf(icoFormat, toutiaoIcoUrl, articleUrl), IcoToutiao
+	} else if strings.Contains(articleUrl, heapDumpHost) {
+		return fmt.Sprintf(icoFormat, heapDumpIcoUrl, articleUrl), IcoHeapDump
 	}
 	return "", IcoUnknown
 }
